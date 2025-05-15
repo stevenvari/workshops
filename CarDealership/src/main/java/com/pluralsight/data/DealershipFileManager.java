@@ -1,5 +1,7 @@
-package com.pluralsight;
+package com.pluralsight.data;
 
+
+import com.pluralsight.model.Dealership;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,14 +15,19 @@ public class DealershipFileManager {
         // take the line of dealership data and split by |
         // take each colum
 
+        Dealership dealership = null;
+
         try {
             FileReader fileReader = new FileReader("data/inventory.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-            String line;
+            String line = bufferedReader.readLine();
+            String[] dealerShipFields = line.split("\\|");
+            dealership = new Dealership(dealerShipFields[0],dealerShipFields[1],dealerShipFields[2]);
 
             while ((line = bufferedReader.readLine()) != null){
-                System.out.println(line);
+
+               // System.out.println(line);
             }
 
             bufferedReader.close();
@@ -29,7 +36,7 @@ public class DealershipFileManager {
             e.printStackTrace();
         }
 
-        Dealership dealership = new Dealership("", "", "");
+
         return dealership;
     }
 

@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.model;
 
 import java.util.ArrayList;
 
@@ -74,5 +74,15 @@ public class Dealership {
 
     public void removeVehicle(Vehicle vehicle){
         inventory.remove(vehicle);
+    }
+
+    @Override
+    public String toString() {
+        return "Dealership{" +
+                "name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", inventory=" + inventory +
+                '}';
     }
 }
